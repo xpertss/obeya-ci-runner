@@ -6,5 +6,7 @@ const project = new CdkInfraProject({
   // ConstructVersion tag (01 §1).
   cdkVersionPinning: true,
   deps: ['@cloudsnorkel/cdk-github-runners@0.17.1'],
+  // The hand-built Rocky runner AMI (01 §10). Rotating it is a one-line PR.
+  context: { obeyaRunnerAmiId: 'ami-04cf732b8ff2dfaab' },
 });
 project.synth();
