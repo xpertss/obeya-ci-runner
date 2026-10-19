@@ -1,23 +1,19 @@
-import { App, Stack, StackProps } from 'aws-cdk-lib';
-import { Construct } from 'constructs';
+import { App, AppProps } from 'aws-cdk-lib';
+import { ObeyaCiRunnerStack } from './obeya-ci-runner-stack';
 
-export class MyStack extends Stack {
-  constructor(scope: Construct, id: string, props: StackProps = {}) {
-    super(scope, id, props);
-
-    // define resources here...
-  }
+/**
+ * One stack in us-east-2 (the account is SCP-locked to it). No account: it
+ * comes from the deploy credentials (the AWS_ACCOUNT_ID secret), and leaving
+ * it unresolved keeps synth free of AWS lookups.
+ */
+export function createApp(props?: AppProps): App {
+  const app = new App(props);
+  new ObeyaCiRunnerStack(app, 'ObeyaCiRunner', {
+    env: { region: 'us-east-2' },
+  });
+  return app;
 }
 
-// for development, use account/region from cdk cli
-const devEnv = {
-  account: process.env.CDK_DEFAULT_ACCOUNT,
-  region: process.env.CDK_DEFAULT_REGION,
-};
-
-const app = new App();
-
-new MyStack(app, 'obeya-ci-runner-dev', { env: devEnv });
-// new MyStack(app, 'obeya-ci-runner-prod', { env: prodEnv });
-
-app.synth();
+if (require.main === module) {
+  createApp().synth();
+}
