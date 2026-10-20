@@ -18,10 +18,6 @@ jobs:
       - name: Checkout
         id: checkout
         uses: actions/checkout@v7
-      - name: debug account
-        env:
-          A: ${{ secrets.AWS_ACCOUNT_ID }}
-        run: echo "len=${#A}"
       - name: Configure AWS credentials
         id: configure_aws_credentials
         uses: aws-actions/configure-aws-credentials@v6
