@@ -55,4 +55,5 @@ junit.xml
 !/.github/workflows/projen-drift-check.yml
 !/.github/workflows/workflow-change-notice.yml
 !/.github/workflows/deploy.yml
+!/.github/workflows/codeindex.yml
 !/.projenrc.ts

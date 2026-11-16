@@ -1,6 +1,11 @@
 {
   "dependencies": [
     {
+      "name": "@sourcegraph/scip-typescript",
+      "version": "0.5.1",
+      "type": "build"
+    },
+    {
       "name": "@stylistic/eslint-plugin",
       "version": "^2",
       "type": "build"
@@ -26,7 +31,7 @@
     },
     {
       "name": "@xpertss/projen-types",
-      "version": "0.1.4",
+      "version": "0.2.5",
       "type": "build"
     },
     {

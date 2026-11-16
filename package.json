@@ -4,6 +4,7 @@
     "build": "projen build",
     "bundle": "projen bundle",
     "clobber": "projen clobber",
+    "codeindex": "projen codeindex",
     "compile": "projen compile",
     "default": "projen default",
     "deploy": "projen deploy",
@@ -24,12 +25,13 @@
     "projen": "projen"
   },
   "devDependencies": {
+    "@sourcegraph/scip-typescript": "0.5.1",
     "@stylistic/eslint-plugin": "^2",
     "@types/jest": "^30.0.0",
     "@types/node": "^22",
     "@typescript-eslint/eslint-plugin": "^8",
     "@typescript-eslint/parser": "^8",
-    "@xpertss/projen-types": "0.1.4",
+    "@xpertss/projen-types": "0.2.5",
     "aws-cdk": "^2",
     "esbuild": "^0.28.2",
     "eslint": "^9",
@@ -37,7 +39,7 @@
     "eslint-plugin-import": "^2.32.0",
     "jest": "^30.5.2",
     "jest-junit": "^17",
-    "projen": "^0.104.27",
+    "projen": "0.105.3",
     "ts-jest": "^29.4.15",
     "ts-node": "^10.9.2",
     "typescript": "~6.0.3"
@@ -48,7 +50,7 @@
     "constructs": "^10.5.1"
   },
   "engines": {
-    "node": ">= 22.0.0"
+    "node": ">= 22.13.0"
   },
   "devEngines": {
     "packageManager": {

@@ -5,6 +5,7 @@
     ".gitattributes",
     ".github/pull_request_template.md",
     ".github/workflows/build.yml",
+    ".github/workflows/codeindex.yml",
     ".github/workflows/deploy.yml",
     ".github/workflows/projen-drift-check.yml",
     ".github/workflows/upgrade.yml",

@@ -73,6 +73,20 @@
       ],
       "condition": "git diff --exit-code > /dev/null"
     },
+    "codeindex": {
+      "name": "codeindex",
+      "steps": [
+        {
+          "exec": "node -e \"const fs=require('fs');fs.mkdirSync('.xss',{recursive:true});fs.rmSync('.xss/index.txt',{force:true})\""
+        },
+        {
+          "exec": "scip-typescript index --output .xss/index.scip"
+        },
+        {
+          "exec": "node node_modules/@xpertss/projen-types/lib/common/scip-index-normalizer.js .xss/index.scip"
+        }
+      ]
+    },
     "compile": {
       "name": "compile",
       "description": "Only compile"
@@ -276,7 +290,7 @@
             "--peer",
             "--no-deprecated",
             "--dep=dev,prod,peer,optional",
-            "--filter=@types/jest,esbuild,eslint-import-resolver-typescript,eslint-plugin-import,jest,projen,ts-jest,ts-node"
+            "--filter=@types/jest,esbuild,eslint-import-resolver-typescript,eslint-plugin-import,jest,ts-jest,ts-node"
           ]
         },
         {
@@ -286,6 +300,7 @@
           "execArgs": [
             "npm",
             "update",
+            "@sourcegraph/scip-typescript",
             "@stylistic/eslint-plugin",
             "@types/jest",
             "@types/node",
@@ -299,7 +314,6 @@
             "eslint",
             "jest",
             "jest-junit",
-            "projen",
             "ts-jest",
             "ts-node",
             "typescript",
